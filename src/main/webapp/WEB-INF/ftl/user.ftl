@@ -42,13 +42,13 @@
 </div>
 
 <div class="container">
-    <fieldset>
-        <legend>Add User</legend>
-        <form action="add.html" method="post">
-            Name: <input type="text" name="name"> <br>
-            <input type="submit" value="Save">
-        </form>
-    </fieldset>
+    <form role="form" method="post" action="add.html">
+        <div class="form-group">
+            <label for="usr">Nom:</label>
+            <input type="text" class="form-control" id="usr" name="name">
+        </div>
+        <button type="submit" class="btn btn-default">Enregistrer</button>
+    </form>
 </div>
 
 </body>
