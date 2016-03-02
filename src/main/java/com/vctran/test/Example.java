@@ -27,8 +27,7 @@ public class Example {
     }
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String hello(@ModelAttribute("model") ModelMap model) {
-        model.addAttribute("helloList", helloList);
+    public String hello() {
         return "hello";
     }
 
@@ -49,7 +48,7 @@ public class Example {
     public String addUser(@ModelAttribute Hello hello) {
         hello.setGreetings("Salut ");
         helloList.add(hello);
-        return "redirect:hello";
+        return "redirect:user";
     }
 
     @RequestMapping(value = "/")
@@ -57,6 +56,9 @@ public class Example {
         return "redirect:hello";
     }
 
-    @RequestMapping(value = "/user")
-    public String user() { return "user"; }
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    public String user(@ModelAttribute("model") ModelMap model) {
+        model.addAttribute("helloList", helloList);
+        return "user";
+    }
 }
