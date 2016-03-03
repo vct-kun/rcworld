@@ -14,17 +14,9 @@ import java.util.List;
  * Created by vctran on 15/12/15.
  */
 @Controller
-public class Example {
+public class UserController {
 
-    private static List<Hello> helloList = new ArrayList<Hello>();
-
-    static {
-        Hello hello = new Hello();
-        hello.setGreetings("greeting");
-        hello.setName("name");
-        hello.setId(1L);
-        helloList.add(hello);
-    }
+    private static List<User> userList = new ArrayList<User>();
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello() {
@@ -33,21 +25,20 @@ public class Example {
 
     @RequestMapping(value = "/hello/{name}")
     public String helloCustom(@PathVariable("name") String name, @ModelAttribute("model") ModelMap modelMap) {
-        Hello hello = new Hello();
-        hello.setGreetings("greeting");
-        hello.setName(name);
-        hello.setId(1L);
+        User user = new User();
+        user.setName(name);
+        user.setId(1L);
 
-        helloList.add(hello);
+        userList.add(user);
 
-        modelMap.addAttribute("helloList", helloList);
+        modelMap.addAttribute("userList", userList);
         return "hello";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addUser(@ModelAttribute Hello hello) {
-        hello.setGreetings("Salut ");
-        helloList.add(hello);
+    public String addUser(@ModelAttribute User user) {
+        user.generateUserInfo();
+        userList.add(user);
         return "redirect:user";
     }
 
@@ -58,7 +49,7 @@ public class Example {
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String user(@ModelAttribute("model") ModelMap model) {
-        model.addAttribute("helloList", helloList);
+        model.addAttribute("userList", userList);
         return "user";
     }
 }

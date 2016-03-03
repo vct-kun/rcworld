@@ -31,11 +31,11 @@
 <div class="container">
     <table class="datatable">
         <tr>
-            <th>Name</th>  <th>Greetings</th>
+            <th>Nom</th>  <th>Ligue</th>
         </tr>
-    <#list model["helloList"] as hello>
+    <#list model["userList"] as user>
         <tr>
-            <td>${hello.name}</td> <td>${hello.greetings}</td>
+            <td>${user.name}</td> <td>${user.userInfo.league}</td>
         </tr>
     </#list>
     </table>
@@ -46,6 +46,10 @@
         <div class="form-group">
             <label for="usr">Nom:</label>
             <input type="text" class="form-control" id="usr" name="name">
+        </div>
+        <div class="form-group">
+            <label for="postalCode">Code postal:</label>
+            <input type="text" class="form-control" id="postalCode" name="postalCode">
         </div>
         <button type="submit" class="btn btn-default">Enregistrer</button>
     </form>
