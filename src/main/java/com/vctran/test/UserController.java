@@ -20,11 +20,6 @@ public class UserController extends WebMvcConfigurerAdapter {
 
     private static List<User> userList = new ArrayList<User>();
 
-//    @RequestMapping(value = "/home", method = RequestMethod.GET)
-//    public String hello() {
-//        return "home";
-//    }
-
     @RequestMapping(value = "/hello/{name}")
     public String helloCustom(@PathVariable("name") String name, @ModelAttribute("model") ModelMap modelMap) {
         User user = new User();
@@ -43,11 +38,6 @@ public class UserController extends WebMvcConfigurerAdapter {
         userList.add(user);
         return "redirect:user";
     }
-
-//    @RequestMapping(value = "/")
-//    public String index() {
-//        return "user";
-//    }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String user(@ModelAttribute("model") ModelMap model) {
