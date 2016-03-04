@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,14 +16,14 @@ import java.util.List;
  * Created by vctran on 15/12/15.
  */
 @Controller
-public class UserController {
+public class UserController extends WebMvcConfigurerAdapter {
 
     private static List<User> userList = new ArrayList<User>();
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String hello() {
-        return "hello";
-    }
+//    @RequestMapping(value = "/home", method = RequestMethod.GET)
+//    public String hello() {
+//        return "home";
+//    }
 
     @RequestMapping(value = "/hello/{name}")
     public String helloCustom(@PathVariable("name") String name, @ModelAttribute("model") ModelMap modelMap) {
@@ -42,14 +44,20 @@ public class UserController {
         return "redirect:user";
     }
 
-    @RequestMapping(value = "/")
-    public String index() {
-        return "redirect:hello";
-    }
+//    @RequestMapping(value = "/")
+//    public String index() {
+//        return "user";
+//    }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String user(@ModelAttribute("model") ModelMap model) {
         model.addAttribute("userList", userList);
         return "user";
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/home").setViewName("home");
+        registry.addViewController("/login").setViewName("login");
     }
 }

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link href="/starter-template.css" rel="stylesheet" type="text/css">
+    <link href="/css/starter-template.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -52,6 +52,7 @@
             <input type="text" class="form-control" id="postalCode" name="postalCode">
         </div>
         <button type="submit" class="btn btn-default">Enregistrer</button>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
 </div>
 
