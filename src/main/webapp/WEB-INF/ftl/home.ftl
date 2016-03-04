@@ -21,23 +21,15 @@
 
 <div class="container">
 
-<div class="starter-template">
-    <h1>Bootstrap starter template</h1>
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-
-        <form role="form" method="post" action="/login">
-            <div class="form-group">
-                <label for="usr">Nom:</label>
-                <input type="text" class="form-control" id="usr" name="username">
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="password">
-            </div>
-            <button type="submit" class="btn btn-default">SignIn</button>
+        <form role="form" method="post" action="/login" class="form-signin">
+            <h2 class="form-signin-heading">Please sign in</h2>
+                <label for="usr" class="sr-only">Email</label>
+                <input type="text" class="form-control" id="usr" name="username" placeholder="Email address" required autofocus>
+                <label for="password" class="sr-only">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+            <button type="submit" class="btn btn-lg btn-primary btn-block">SignIn</button>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
-</div>
 
 </div><!-- /.container -->
 
