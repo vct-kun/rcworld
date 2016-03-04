@@ -23,6 +23,11 @@
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><form class="navbar-form navbar-left" action="/logout" method="post">
+                    <button type="submit" class="btn btn-default">Log out</button>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    </form>
+                </li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
