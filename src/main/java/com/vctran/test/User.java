@@ -9,6 +9,7 @@ public class User {
     // test
     private String name;
     private String postalCode;
+// test2
 
     private UserInfo userInfo;
 
