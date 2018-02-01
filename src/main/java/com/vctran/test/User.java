@@ -6,6 +6,7 @@ package com.vctran.test;
 public class User {
 
     private Long id;
+    // test
     private String name;
     private String postalCode;
 
